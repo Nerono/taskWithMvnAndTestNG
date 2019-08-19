@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,8 @@ import testprog.realpages.POMainPage;
 import testprog.tests.TestsTask;
 
 import java.util.List;
+
+import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 
 public class Tester {
     WebDriver driver;
@@ -33,7 +36,8 @@ public class Tester {
     }*/
     @BeforeTest
     public void preparing() throws Exception{
-        System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
+        WebDriverManager.getInstance(CHROME).setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
