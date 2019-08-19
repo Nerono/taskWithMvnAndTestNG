@@ -3,6 +3,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -38,7 +39,9 @@ public class Tester {
     public void preparing() throws Exception{
        // System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
         WebDriverManager.getInstance(CHROME).setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
     @AfterTest
