@@ -17,6 +17,7 @@ import testprog.tests.TestsTask;
 import java.util.List;
 
 import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
+import static io.github.bonigarcia.wdm.DriverManagerType.FIREFOX;
 
 public class Tester {
     WebDriver driver;
@@ -38,7 +39,7 @@ public class Tester {
     @BeforeTest
     public void preparing() throws Exception{
        // System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
-        WebDriverManager.getInstance(CHROME).setup();
+        /*WebDriverManager.getInstance(CHROME).setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
         //Need for startbrowser in ubuntu
@@ -47,7 +48,9 @@ public class Tester {
         //
 
 
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);*/
+
+        WebDriverManager.getInstance(FIREFOX).setup();
         driver.manage().window().maximize();
     }
     @AfterTest
