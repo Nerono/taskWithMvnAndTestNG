@@ -1,11 +1,9 @@
-<suite name="TestAll">
-
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ThisSuite">
     <listeners>
         <listener class-name = "CustomListener" />
-    </listeners>
-
-
-    <test name="TestAll">
+   </listeners>
+    <test name="example">
         <classes>
             <class name="Tester" />
         </classes>
