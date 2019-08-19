@@ -41,6 +41,12 @@ public class Tester {
         WebDriverManager.getInstance(CHROME).setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
+        //Need for startbrowser in ubuntu
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        //
+
+
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
