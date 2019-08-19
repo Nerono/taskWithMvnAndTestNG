@@ -44,6 +44,7 @@ public class Tester {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
         //Need for startbrowser in ubuntu
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         //
