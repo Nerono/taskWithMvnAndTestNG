@@ -1,0 +1,13 @@
+<suite name="TestAll">
+
+    <listeners>
+        <listener class-name = "CustomListener" />
+    </listeners>
+
+
+    <test name="TestAll">
+        <classes>
+            <class name="Tester" />
+        </classes>
+    </test>
+</suite>
