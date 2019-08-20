@@ -40,22 +40,30 @@ public class Tester {
     @BeforeTest
     public void preparing() throws Exception{
        // System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
-        WebDriverManager.getInstance(CHROME).setup();
-        ChromeOptions options = new ChromeOptions();
+        //WebDriverManager.getInstance(CHROME).setup();
+
+        /*ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
         //Need for startbrowser in ubuntu
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        //
+        //*/
 
 
-        driver = new ChromeDriver(options);
+        //driver = new ChromeDriver(options);
 
         /*WebDriverManager.getInstance(FIREFOX).setup();
         driver = new FirefoxDriver();*/
 
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
     @AfterTest
