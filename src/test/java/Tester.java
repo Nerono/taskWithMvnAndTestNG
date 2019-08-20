@@ -56,6 +56,7 @@ public class Tester {
 
 
         //WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
         options.addArguments("--headless");
