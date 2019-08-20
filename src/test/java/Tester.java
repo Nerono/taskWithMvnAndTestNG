@@ -53,17 +53,16 @@ public class Tester {
 
         //driver = new ChromeDriver(options);
 
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
 
-        /*WebDriverManager.chromedriver().setup();
+
+        //WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
-        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
     @AfterTest
