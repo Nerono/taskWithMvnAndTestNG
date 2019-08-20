@@ -56,9 +56,24 @@ public class Tester {
 
 
         //WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+
+
+       //**********WORKS IN UBUNTU********************
+
+        /*System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         //options.setBinary("/opt/google/chrome"); //googlechrome in this directory in ubuntu
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();*/
+        //*********************************************
+
+
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
