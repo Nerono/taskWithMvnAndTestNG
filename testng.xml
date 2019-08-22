@@ -1,9 +1,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="ThisSuite">
+    <!--<parameter name="browser" value="chrome"></parameter>   -->
     <listeners>
         <listener class-name = "CustomListener" />
    </listeners>
     <test name="example">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="Tester" />
+        </classes>
+    </test>
+    <test name="example2">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="Tester" />
         </classes>

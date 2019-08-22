@@ -1,3 +1,4 @@
+import com.beust.jcommander.Parameter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -37,8 +38,9 @@ public class Tester {
         s = "http://prestashop-automation.qatestlab.com.ua/ru/";
         mp = tb.openMainPage();
     }*/
+    @Parameters({"browser"})
     @BeforeTest
-    public void preparing() throws Exception{
+    public void preparing(String browser) throws Exception{
        // System.setProperty("webdriver.chrome.driver","D:\\TestTools\\chromedriver\\chromedriver.exe");
         //WebDriverManager.getInstance(CHROME).setup();
 
@@ -72,14 +74,41 @@ public class Tester {
         //*********************************************
 
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        System.out.println(System.getProperty("os.name"));
+        if(System.getProperty("os.name").contains("Windows")){
+            if(browser.equals("chrome")){
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
+            }else if(browser.equals("firefox")){
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                driver.manage().window().maximize();
+            }else{
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
+            }
 
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        }else if(System.getProperty("os.name").contains("Linux")){
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+
+            options.addArguments("--headless");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+
+            driver = new ChromeDriver(options);
+        }
+
+
+
+        /*ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");*/
+
+
     }
     @AfterTest
     public void closing() throws Exception{
